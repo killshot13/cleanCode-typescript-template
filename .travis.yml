@@ -1,0 +1,28 @@
+push:
+  branches: [main]
+pull_request:
+  branches: [main]
+
+os: [linux]
+dist: xenial
+
+language: node_js
+node_js:
+  - 'stable'
+cache:
+  directories:
+    - 'node_modules'
+
+script:
+  - echo 'Starting Build'
+  - npm install
+  - echo 'Running Test'
+  - npm run test
+  - echo 'Test Complete'
+
+notifications:
+  email:
+    recipients:
+      - ''
+    on_success: change
+    on_failure: always
